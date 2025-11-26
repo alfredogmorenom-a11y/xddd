@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heroe vs Cacas Malvadas</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #111;
+      --panel: #1b1b1b;
+      --text: #f4f4f4;
+      --accent: #f5a524;
+      --danger: #ff5c8a;
+      --good: #52ffa8;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      height: 100vh;
+    }
+    .container {
+      width: min(900px, 95vw);
+      display: grid;
+      gap: 12px;
+    }
+    header {
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 12px 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .stat {
+      display: grid;
+      gap: 4px;
+      min-width: 130px;
+    }
+    .label {
+      opacity: 0.7;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+    .value {
+      font-weight: 700;
+    }
+    canvas {
+      background: radial-gradient(circle at 20% 20%, #191919, #0b0b0b 60%);
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .help {
+      font-size: 14px;
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 10px 14px;
+      line-height: 1.6;
+    }
+    .accent { color: var(--accent); }
+    .good { color: var(--good); }
+    .danger { color: var(--danger); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="stat">
+        <span class="label">Nivel</span>
+        <span class="value" id="level">1</span>
+      </div>
+      <div class="stat">
+        <span class="label">Puntos</span>
+        <span class="value" id="score">0</span>
+      </div>
+      <div class="stat">
+        <span class="label">Vidas</span>
+        <span class="value" id="lives">3</span>
+      </div>
+      <div class="stat">
+        <span class="label">Estado</span>
+        <span class="value" id="status">El héroe está listo</span>
+      </div>
+    </header>
+    <canvas id="game" width="900" height="520" aria-label="Campo de batalla contra las cacas"></canvas>
+    <div class="help">
+      Mueve al héroe con las flechas o <span class="accent">WASD</span> y dispara con <span class="accent">ESPACIO</span>. 
+      Destruye todas las cacas malvadas para subir de nivel y acumular puntos. En el 
+      <strong class="danger">nivel 5</strong> te espera la <strong class="danger">Caca Boss Final</strong>; ¡vence para ganar la partida!
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
